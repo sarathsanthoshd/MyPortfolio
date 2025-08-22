@@ -1,10 +1,10 @@
 // server.js
 
-// Import required packages
-const express = require('express');
-const nodemailer = require('nodemailer');
-const cors = require('cors');
-require('dotenv').config(); // To use environment variables from a .env file
+// Import required packages using ES module syntax
+import express from 'express';
+import nodemailer from 'nodemailer';
+import cors from 'cors';
+import 'dotenv/config'; // Loads environment variables from a .env file
 
 // Initialize the Express app
 const app = express();
@@ -15,9 +15,9 @@ const PORT = process.env.PORT || 5000;
 app.use(cors({
   origin: 'http://localhost:5173', // Change to your frontend URL if needed
   credentials: true,
-})); 
+}));
 // Parse incoming JSON requests
-app.use(express.json()); 
+app.use(express.json());
 
 // Check required environment variables
 if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || !process.env.RECIPIENT_EMAIL) {
@@ -55,10 +55,10 @@ app.post('/api/contact', (req, res) => {
     to: process.env.RECIPIENT_EMAIL, // The email address where you want to receive messages
     subject: `New Contact Form Message from ${name}`,
     text: `You have received a new message from your website contact form.
-    
+
     Name: ${name}
     Email: ${email}
-    
+
     Message:
     ${message}`,
   };
