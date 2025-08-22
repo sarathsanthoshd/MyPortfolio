@@ -8,10 +8,10 @@
 const getApiBaseUrl = () => {
   // In a Vite project, environment variables prefixed with VITE_ are exposed to the client-side code.
   // import.meta.env.VITE_API_URL will be replaced by Vite during the build process.
-  return import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+  return import.meta.env.VITE_API_URL ;
 };
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL ;
 
 export default API_URL;
 
